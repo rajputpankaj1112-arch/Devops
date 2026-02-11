@@ -1,0 +1,10 @@
+---
+- name: playbook with idempotency 
+  hosts: webservers
+  become: yes
+  tasks:
+
+    - name: Create a file only once
+      command: touch /tmp/ansible_demo
+      args:
+        creates: /tmp/ansible_demo
